@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+
+    <domain-config cleartextTrafficPermitted="true"> <!-- 对请求提供明文（使用未加密 HTTP 协议而非 HTTPS）支持 -->
+        <domain includeSubdomains="true">172.16.52.88</domain>  <!-- AndroidVideoCache 本身启动的server,在Android9以上会被拦截，无法缓存  -->
+    </domain-config>
+</network-security-config>
